@@ -27,6 +27,12 @@ MYSQL_PASSWORD=your_db_password
 MYSQL_DB=your_db
 ```
 
+### Create network
+
+```bash
+docker network create app-network
+```
+
 ### Run the databases
 
 ```bash
