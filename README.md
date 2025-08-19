@@ -20,11 +20,11 @@ This repository contains the necessary to set up the databases of Keyfairy
 ### Create .env file, for example:
 
 ```bash
-MYSQL_HOST=your_host
-MYSQL_PORT=your_db_port
-MYSQL_USER=your_db_user
-MYSQL_PASSWORD=your_db_password
-MYSQL_DB=your_db
+MYSQL_ROOT_PASSWORD=YOUR_MYSQL_ROOT_PASSWORD
+MYSQL_DATABASE=YOUR_MYSQL_DATABASE
+MYSQL_USER=YOUR_MYSQL_USER
+MYSQL_PASSWORD=YOUR_MYSQL_PASSWORD
+MYSQL_PORT=YOUR_MYSQL_PORT
 ```
 
 ### Create network
