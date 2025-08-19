@@ -8,16 +8,23 @@ CREATE TABLE Usuario (
     nivel_teclado VARCHAR(50) NOT NULL
 );
 
+CREATE TABLE Escala (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    tipo_escala VARCHAR(50) NOT NULL
+);
+
 CREATE TABLE Practica (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre_escala VARCHAR(255) NOT NULL,
     fecha VARCHAR(50) NOT NULL,
     hora VARCHAR(50) NOT NULL,
     num_err_postura NUMERIC,
     num_err_musical NUMERIC,
     duracion NUMERIC,
     id_usuario VARCHAR(128) NOT NULL,
-    FOREIGN KEY (id_usuario) REFERENCES Usuario(id) ON DELETE CASCADE
+    id_escala INT NOT NULL,
+    FOREIGN KEY (id_usuario) REFERENCES Usuario(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_escala) REFERENCES Escala(id) ON DELETE CASCADE
 );
 
 CREATE TABLE ErrorPostural (
