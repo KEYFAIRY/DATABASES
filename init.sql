@@ -23,7 +23,7 @@ CREATE TABLE Practica (
     duracion NUMERIC,
     id_usuario VARCHAR(128) NOT NULL,
     id_escala INT NOT NULL,
-    FOREIGN KEY (id_usuario) REFERENCES Usuario(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_usuario) REFERENCES Student(uid) ON DELETE CASCADE,
     FOREIGN KEY (id_escala) REFERENCES Escala(id) ON DELETE CASCADE
 );
 
