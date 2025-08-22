@@ -1,11 +1,11 @@
 CREATE DATABASE IF NOT EXISTS piano_db;
 USE piano_db;
 
-CREATE TABLE Usuario (
-    id VARCHAR(128) PRIMARY KEY, -- UID de Firebase
-    nombre VARCHAR(255) NOT NULL,
-    correo VARCHAR(255) NOT NULL UNIQUE,
-    nivel_teclado VARCHAR(50) NOT NULL
+CREATE TABLE Student (
+    uid VARCHAR(128) PRIMARY KEY, -- UID de Firebase
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    piano_level VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Escala (
