@@ -8,38 +8,38 @@ CREATE TABLE Student (
     piano_level VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE Escala (
+CREATE TABLE Scale (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(255) NOT NULL,
-    tipo_escala VARCHAR(50) NOT NULL
+    name VARCHAR(255) NOT NULL,
+    scale_type VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE Practica (
+CREATE TABLE Practice (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    fecha VARCHAR(50) NOT NULL,
-    hora VARCHAR(50) NOT NULL,
-    num_err_postura NUMERIC,
-    num_err_musical NUMERIC,
-    duracion NUMERIC,
-    id_usuario VARCHAR(128) NOT NULL,
-    id_escala INT NOT NULL,
-    FOREIGN KEY (id_usuario) REFERENCES Student(uid) ON DELETE CASCADE,
-    FOREIGN KEY (id_escala) REFERENCES Escala(id) ON DELETE CASCADE
+    date VARCHAR(50) NOT NULL,
+    time VARCHAR(50) NOT NULL,
+    num_postural_errors NUMERIC,
+    num_musical_errors NUMERIC,
+    duration NUMERIC,
+    id_student VARCHAR(128) NOT NULL,
+    id_scale INT NOT NULL,
+    FOREIGN KEY (id_student) REFERENCES Student(uid) ON DELETE CASCADE,
+    FOREIGN KEY (id_scale) REFERENCES Scale(id) ON DELETE CASCADE
 );
 
-CREATE TABLE ErrorPostural (
+CREATE TABLE PosturalError (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    min_seg VARCHAR(50) NOT NULL,
-    explicacion VARCHAR(500),
-    id_practica INT NOT NULL,
-    FOREIGN KEY (id_practica) REFERENCES Practica(id) ON DELETE CASCADE
+    min_sec VARCHAR(50) NOT NULL,
+    explication VARCHAR(500),
+    id_practice INT NOT NULL,
+    FOREIGN KEY (id_practice) REFERENCES Practice(id) ON DELETE CASCADE
 );
 
-CREATE TABLE ErrorMusical (
+CREATE TABLE MusicalError (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    min_seg VARCHAR(50) NOT NULL,
-    nota_tocada VARCHAR(10),
-    nota_correcta VARCHAR(10),
-    id_practica INT NOT NULL,
-    FOREIGN KEY (id_practica) REFERENCES Practica(id) ON DELETE CASCADE
+    min_sec VARCHAR(50) NOT NULL,
+    note_played VARCHAR(10),
+    note_correct VARCHAR(10),
+    id_practice INT NOT NULL,
+    FOREIGN KEY (id_practice) REFERENCES Practice(id) ON DELETE CASCADE
 );
