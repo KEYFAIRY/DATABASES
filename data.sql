@@ -27,15 +27,15 @@ INSERT INTO Scale (name, scale_type) values ('B', 'Armonic');
 
 
 INSERT INTO Practice (date, time, num_postural_errors, num_musical_errors, duration, id_student, id_scale) values ('2025-01-01', '10:00', 2, 3, 15, '1', 1);
-INSERT INTO Practice (date, time, num_postural_errors, num_musical_errors, duration, id_student, id_scale) values ('2025-01-03', '11:00', 0, 1, 30, '1', 3);
+INSERT INTO Practice (date, time, num_postural_errors, num_musical_errors, duration, id_student, id_scale) values ('2025-01-03', '11:00', 0, 1, 30, '1', 1);
 INSERT INTO Practice (date, time, num_postural_errors, num_musical_errors, duration, id_student, id_scale) values ('2025-01-04', '12:00', 2, 2, 60, '1', 5);
-INSERT INTO Practice (date, time, num_postural_errors, num_musical_errors, duration, id_student, id_scale) values ('2025-02-04', '13:00', 3, 0, 10, '1', 15);
+INSERT INTO Practice (date, time, num_postural_errors, num_musical_errors, duration, id_student, id_scale) values ('2025-02-04', '13:00', 3, 0, 10, '1', 1);
 INSERT INTO Practice (date, time, num_postural_errors, num_musical_errors, duration, id_student, id_scale) values ('2025-02-06', '14:00', 2, 1, 12, '1', 10);
 
 INSERT INTO Practice (date, time, num_postural_errors, num_musical_errors, duration, id_student, id_scale) values ('2025-04-08', '10:00', 5, 9, 20, '2', 2);
 INSERT INTO Practice (date, time, num_postural_errors, num_musical_errors, duration, id_student, id_scale) values ('2025-04-09', '11:00', 3, 1, 25, '2', 8);
-INSERT INTO Practice (date, time, num_postural_errors, num_musical_errors, duration, id_student, id_scale) values ('2025-04-11', '12:00', 8, 2, 13, '2', 9);
-INSERT INTO Practice (date, time, num_postural_errors, num_musical_errors, duration, id_student, id_scale) values ('2025-05-13', '13:00', 4, 4, 10, '2', 13);
+INSERT INTO Practice (date, time, num_postural_errors, num_musical_errors, duration, id_student, id_scale) values ('2025-04-11', '12:00', 8, 2, 13, '2', 2);
+INSERT INTO Practice (date, time, num_postural_errors, num_musical_errors, duration, id_student, id_scale) values ('2025-05-13', '13:00', 4, 4, 10, '2', 2);
 INSERT INTO Practice (date, time, num_postural_errors, num_musical_errors, duration, id_student, id_scale) values ('2025-05-15', '14:00', 6, 5, 11, '2', 15);
 
 INSERT INTO Practice (date, time, num_postural_errors, num_musical_errors, duration, id_student, id_scale) values ('2025-06-23', '10:00', 6, 5, 25, '3', 4);
