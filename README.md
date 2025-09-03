@@ -20,11 +20,16 @@ This repository contains the necessary to set up the databases of Keyfairy
 ### Create .env file, for example:
 
 ```bash
-MYSQL_ROOT_PASSWORD=YOUR_MYSQL_ROOT_PASSWORD
-MYSQL_DATABASE=YOUR_MYSQL_DATABASE
-MYSQL_USER=YOUR_MYSQL_USER
-MYSQL_PASSWORD=YOUR_MYSQL_PASSWORD
-MYSQL_PORT=YOUR_MYSQL_PORT
+MYSQL_ROOT_PASSWORD=your_root_password
+MYSQL_DATABASE=your_database
+MYSQL_USER=your_user
+MYSQL_PASSWORD=your_password
+MYSQL_PORT=your_port
+
+MONGO_ROOT_USERNAME=your_monogo_username
+MONGO_ROOT_PASSWORD=your_monogo_password
+MONGO_DATABASE=your_monogo_database
+MONGO_PORT=your_monogo_port
 ```
 
 ### Create network

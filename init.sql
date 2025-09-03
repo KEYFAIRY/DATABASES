@@ -1,38 +1,45 @@
 CREATE DATABASE IF NOT EXISTS piano_db;
 USE piano_db;
 
-CREATE TABLE Usuario (
-    id VARCHAR(128) PRIMARY KEY, -- UID de Firebase
-    nombre VARCHAR(255) NOT NULL,
-    correo VARCHAR(255) NOT NULL UNIQUE,
-    nivel_teclado VARCHAR(50) NOT NULL
+CREATE TABLE Student (
+    uid VARCHAR(128) PRIMARY KEY, -- UID de Firebase
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    piano_level VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE Practica (
+CREATE TABLE Scale (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre_escala VARCHAR(255) NOT NULL,
-    fecha VARCHAR(50) NOT NULL,
-    hora VARCHAR(50) NOT NULL,
-    num_err_postura NUMERIC,
-    num_err_musical NUMERIC,
-    duracion NUMERIC,
-    id_usuario VARCHAR(128) NOT NULL,
-    FOREIGN KEY (id_usuario) REFERENCES Usuario(id) ON DELETE CASCADE
+    name VARCHAR(255) NOT NULL,
+    scale_type VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE ErrorPostural (
+CREATE TABLE Practice (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    min_seg VARCHAR(50) NOT NULL,
-    explicacion VARCHAR(500),
-    id_practica INT NOT NULL,
-    FOREIGN KEY (id_practica) REFERENCES Practica(id) ON DELETE CASCADE
+    date VARCHAR(50) NOT NULL,
+    time VARCHAR(50) NOT NULL,
+    num_postural_errors NUMERIC,
+    num_musical_errors NUMERIC,
+    duration NUMERIC,
+    id_student VARCHAR(128) NOT NULL,
+    id_scale INT NOT NULL,
+    FOREIGN KEY (id_student) REFERENCES Student(uid) ON DELETE CASCADE,
+    FOREIGN KEY (id_scale) REFERENCES Scale(id) ON DELETE CASCADE
 );
 
-CREATE TABLE ErrorMusical (
+CREATE TABLE PosturalError (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    min_seg VARCHAR(50) NOT NULL,
-    nota_tocada VARCHAR(10),
-    nota_correcta VARCHAR(10),
-    id_practica INT NOT NULL,
-    FOREIGN KEY (id_practica) REFERENCES Practica(id) ON DELETE CASCADE
+    min_sec VARCHAR(50) NOT NULL,
+    explication VARCHAR(500),
+    id_practice INT NOT NULL,
+    FOREIGN KEY (id_practice) REFERENCES Practice(id) ON DELETE CASCADE
+);
+
+CREATE TABLE MusicalError (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    min_sec VARCHAR(50) NOT NULL,
+    note_played VARCHAR(10),
+    note_correct VARCHAR(10),
+    id_practice INT NOT NULL,
+    FOREIGN KEY (id_practice) REFERENCES Practice(id) ON DELETE CASCADE
 );
