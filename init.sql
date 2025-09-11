@@ -30,6 +30,7 @@ CREATE TABLE Practice (
 CREATE TABLE PosturalError (
     id INT AUTO_INCREMENT PRIMARY KEY,
     min_sec VARCHAR(50) NOT NULL,
+    frame INT NOT NULL,
     explication VARCHAR(500),
     id_practice INT NOT NULL,
     FOREIGN KEY (id_practice) REFERENCES Practice(id) ON DELETE CASCADE
@@ -43,32 +44,3 @@ CREATE TABLE MusicalError (
     id_practice INT NOT NULL,
     FOREIGN KEY (id_practice) REFERENCES Practice(id) ON DELETE CASCADE
 );
-
-
--- ========================
--- Insert sample Students
--- ========================
-INSERT INTO Student (uid, name, email, piano_level)
-VALUES 
-('UID12345', 'Alice Johnson', 'alice@example.com', 'principiante'),
-('UID67890', 'Bob Martinez', 'bob@example.com', 'intermedio'),
-('UID54321', 'Carla Smith', 'carla@example.com', 'avanzado');
-
--- ========================
--- Insert sample Scales
--- ========================
-INSERT INTO Scale (name, scale_type)
-VALUES
-('C Major', 'Major'),
-('A Minor', 'Minor'),
-('G Major', 'Major');
-
--- ========================
--- Insert sample Practices
--- (Use existing uid from Student and id from Scale)
--- ========================
-INSERT INTO Practice (date, time, num_postural_errors, num_musical_errors, duration, id_student, id_scale)
-VALUES
-('2025-09-02', '10:30', 2, 3, 15, 'UID12345', 1), -- Alice practicing C Major
-('2025-09-02', '11:00', 1, 0, 20, 'UID67890', 2), -- Bob practicing A Minor
-('2025-09-02', '14:15', 0, 1, 25, 'UID54321', 3); -- Carla practicing G Major
