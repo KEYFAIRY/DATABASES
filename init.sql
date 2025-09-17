@@ -21,7 +21,7 @@ CREATE TABLE Practice (
     num_postural_errors NUMERIC,
     num_musical_errors NUMERIC,
     duration NUMERIC NOT NULL,
-    bpm NUMERIC NOT NULL
+    bpm NUMERIC NOT NULL,
     id_student VARCHAR(128) NOT NULL,
     id_scale INT NOT NULL,
     FOREIGN KEY (id_student) REFERENCES Student(uid) ON DELETE CASCADE,
