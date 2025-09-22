@@ -11,7 +11,8 @@ CREATE TABLE Student (
 CREATE TABLE Scale (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    scale_type VARCHAR(50) NOT NULL
+    scale_type VARCHAR(50) NOT NULL,
+    CONSTRAINT uq_scale UNIQUE (name, scale_type)
 );
 
 CREATE TABLE Practice (
@@ -34,7 +35,8 @@ CREATE TABLE PosturalError (
     min_sec_end VARCHAR(50) NOT NULL,
     explication VARCHAR(500),
     id_practice INT NOT NULL,
-    FOREIGN KEY (id_practice) REFERENCES Practice(id) ON DELETE CASCADE
+    FOREIGN KEY (id_practice) REFERENCES Practice(id) ON DELETE CASCADE,
+    CONSTRAINT uq_postural_error UNIQUE (min_sec_init, min_sec_end, explication, id_practice)
 );
 
 CREATE TABLE MusicalError (
@@ -43,5 +45,6 @@ CREATE TABLE MusicalError (
     note_played VARCHAR(10),
     note_correct VARCHAR(10),
     id_practice INT NOT NULL,
-    FOREIGN KEY (id_practice) REFERENCES Practice(id) ON DELETE CASCADE
+    FOREIGN KEY (id_practice) REFERENCES Practice(id) ON DELETE CASCADE,
+    CONSTRAINT uq_musical_error UNIQUE (min_sec, note_played, note_correct, id_practice)
 );
