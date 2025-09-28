@@ -17,8 +17,7 @@ CREATE TABLE Scale (
 
 CREATE TABLE Practice (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    date VARCHAR(50) NOT NULL,
-    time VARCHAR(50) NOT NULL,
+    practice_datetime DATETIME NOT NULL,
     num_postural_errors NUMERIC,
     num_musical_errors NUMERIC,
     duration NUMERIC NOT NULL,
