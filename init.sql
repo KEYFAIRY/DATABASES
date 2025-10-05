@@ -22,6 +22,8 @@ CREATE TABLE Practice (
     num_musical_errors NUMERIC,
     duration NUMERIC NOT NULL,
     bpm NUMERIC NOT NULL,
+    figure NUMERIC NOT NULL,
+    octaves NUMERIC NOT NULL,
     id_student VARCHAR(128) NOT NULL,
     id_scale INT NOT NULL,
     FOREIGN KEY (id_student) REFERENCES Student(uid) ON DELETE CASCADE,
@@ -41,9 +43,8 @@ CREATE TABLE PosturalError (
 CREATE TABLE MusicalError (
     id INT AUTO_INCREMENT PRIMARY KEY,
     min_sec VARCHAR(50) NOT NULL,
-    note_played VARCHAR(10),
-    note_correct VARCHAR(10),
+    missed_note VARCHAR(10),
     id_practice INT NOT NULL,
     FOREIGN KEY (id_practice) REFERENCES Practice(id) ON DELETE CASCADE,
-    CONSTRAINT uq_musical_error UNIQUE (min_sec, note_played, note_correct, id_practice)
+    CONSTRAINT uq_musical_error UNIQUE (min_sec, missed_note, id_practice)
 );
