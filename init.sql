@@ -22,7 +22,7 @@ CREATE TABLE Practice (
     num_musical_errors NUMERIC,
     duration NUMERIC NOT NULL,
     bpm NUMERIC NOT NULL,
-    figure DECIMAL(4,2) NOT NULL
+    figure DECIMAL(4,2) NOT NULL,
     octaves NUMERIC NOT NULL,
     id_student VARCHAR(128) NOT NULL,
     id_scale INT NOT NULL,
