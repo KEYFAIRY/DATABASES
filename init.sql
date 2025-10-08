@@ -43,8 +43,9 @@ CREATE TABLE PosturalError (
 CREATE TABLE MusicalError (
     id INT AUTO_INCREMENT PRIMARY KEY,
     min_sec VARCHAR(50) NOT NULL,
-    missed_note VARCHAR(10),
+    note_played VARCHAR(10),
+    note_correct VARCHAR(10),
     id_practice INT NOT NULL,
     FOREIGN KEY (id_practice) REFERENCES Practice(id) ON DELETE CASCADE,
-    CONSTRAINT uq_musical_error UNIQUE (min_sec, missed_note, id_practice)
+    CONSTRAINT uq_musical_error UNIQUE (min_sec, note_played, note_correct, id_practice)
 );
