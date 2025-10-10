@@ -34,6 +34,7 @@ CREATE TABLE PosturalError (
     id INT AUTO_INCREMENT PRIMARY KEY,
     min_sec_init VARCHAR(50) NOT NULL,
     min_sec_end VARCHAR(50) NOT NULL,
+    frame INT NOT NULL,
     explication VARCHAR(500),
     id_practice INT NOT NULL,
     FOREIGN KEY (id_practice) REFERENCES Practice(id) ON DELETE CASCADE,
