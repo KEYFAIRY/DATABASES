@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS piano_db;
 USE piano_db;
 
 CREATE TABLE Student (
-    uid VARCHAR(128) PRIMARY KEY,
+    uid VARCHAR(128) PRIMARY KEY, -- UID de Firebase
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
     piano_level VARCHAR(50) NOT NULL
@@ -22,6 +22,8 @@ CREATE TABLE Practice (
     num_musical_errors NUMERIC,
     duration NUMERIC NOT NULL,
     bpm NUMERIC NOT NULL,
+    figure DECIMAL(4,2) NOT NULL,
+    octaves NUMERIC NOT NULL,
     total_notes_played INT NOT NULL,
     id_student VARCHAR(128) NOT NULL,
     id_scale INT NOT NULL,
@@ -33,9 +35,11 @@ CREATE TABLE PosturalError (
     id INT AUTO_INCREMENT PRIMARY KEY,
     min_sec_init VARCHAR(50) NOT NULL,
     min_sec_end VARCHAR(50) NOT NULL,
+    frame INT NOT NULL,
     explication VARCHAR(500),
     id_practice INT NOT NULL,
-    FOREIGN KEY (id_practice) REFERENCES Practice(id) ON DELETE CASCADE
+    FOREIGN KEY (id_practice) REFERENCES Practice(id) ON DELETE CASCADE,
+    CONSTRAINT uq_postural_error UNIQUE (min_sec_init, min_sec_end, explication, id_practice)
 );
 
 CREATE TABLE MusicalError (
@@ -44,9 +48,13 @@ CREATE TABLE MusicalError (
     note_played VARCHAR(10),
     note_correct VARCHAR(10),
     id_practice INT NOT NULL,
-    FOREIGN KEY (id_practice) REFERENCES Practice(id) ON DELETE CASCADE
+    FOREIGN KEY (id_practice) REFERENCES Practice(id) ON DELETE CASCADE,
+    CONSTRAINT uq_musical_error UNIQUE (min_sec, note_played, note_correct, id_practice)
 );
 
+
+
+/*  Tablas para reportes y triggers*/
 
 CREATE TABLE TopEscalasDiarias (
     id_student VARCHAR(128),
