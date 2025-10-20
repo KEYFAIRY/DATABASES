@@ -1,6 +1,10 @@
 CREATE DATABASE IF NOT EXISTS piano_db;
 USE piano_db;
 
+-- Grant permissions to application user
+GRANT ALL PRIVILEGES ON piano_db.* TO 'myuser'@'%';
+FLUSH PRIVILEGES;
+
 CREATE TABLE Student (
     uid VARCHAR(128) PRIMARY KEY, -- UID de Firebase
     name VARCHAR(255) NOT NULL,
